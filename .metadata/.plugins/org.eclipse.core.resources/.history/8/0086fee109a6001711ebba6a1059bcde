@@ -1,0 +1,11 @@
+package Main;
+
+public class Truck implements VehicleBehavior{
+	private final double TRUCK_PRICE_PER_HOUR = 30.00;
+	
+	@Override
+	public void setVehicle(double price) {
+		price = TRUCK_PRICE_PER_HOUR;
+	}
+
+}

@@ -1,0 +1,20 @@
+package Main;
+
+public class Car extends Vehicle {
+	private final double CAR_PRICE_PER_HOUR = 25.00;
+	private PriceBehavior priceBehavior;
+	
+	
+	public Car(){
+		priceBehavior = new CarPrice();
+	}
+	@Override
+	public void display() {
+		System.out.println("A car costs " + CAR_PRICE_PER_HOUR + "/hr");
+		
+	}
+	
+
+
+
+}

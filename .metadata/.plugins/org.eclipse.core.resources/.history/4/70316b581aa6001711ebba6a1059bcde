@@ -1,0 +1,39 @@
+package Main;
+
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+public class CustomerTerminalView extends Application {
+
+	@Override
+	public void start(Stage main) throws Exception {
+		BorderPane borderPane = new BorderPane();
+		
+		
+	
+		
+		HBox welcomeBox = new HBox();
+//		welcomeBox.setAlignment(Pos.CENTER);
+		 welcomeBox.setPadding(new Insets(100, 0, 0, 150));
+		    welcomeBox.setSpacing(10);
+		    welcomeBox.setStyle("-fx-background-color: #336699;");
+		    Text welcomeText = new Text("Welcome to the lot. Please enter your space number below.");
+			welcomeBox.getChildren().addAll(welcomeText);
+
+		
+		borderPane.getChildren().addAll(welcomeBox);
+		Scene scene = new Scene(borderPane, 700, 600);
+		main.setScene(scene);
+		main.show();
+		main.centerOnScreen();
+	}
+
+	
+
+}

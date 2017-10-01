@@ -1,0 +1,7 @@
+package compositionAndAggrigation;
+
+public class CommunityCollege {
+	//life of instructor is the same as class
+	private Instructor instructor1 = new Instructor("John Doe");
+
+}

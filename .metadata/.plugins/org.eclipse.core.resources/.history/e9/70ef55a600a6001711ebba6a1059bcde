@@ -1,0 +1,8 @@
+package Main;
+
+public abstract class Vehicle {
+	private MotorcycleBehavior motorcycleBehavior;
+	private CarBehavior carBehavior;
+	private TruckBehavior truckBehavior;
+
+}

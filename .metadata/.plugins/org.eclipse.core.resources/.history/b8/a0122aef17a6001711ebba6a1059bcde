@@ -1,0 +1,30 @@
+package Main;
+
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+public class CustomerTerminalView extends Application {
+
+	@Override
+	public void start(Stage main) throws Exception {
+	
+		Text welcomeText = new Text("Welcome to the lot. Please enter your space number below.");
+	
+		
+		HBox welcomeBox = new HBox(50);
+		welcomeBox.getChildren().addAll(welcomeText);
+		BorderPane pane = new BorderPane();
+		pane.getChildren().addAll(welcomeBox);
+		Scene scene = new Scene(pane, 700, 600);
+		main.setScene(scene);
+		main.show();
+		main.centerOnScreen();
+	}
+
+	
+
+}

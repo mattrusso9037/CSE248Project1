@@ -1,0 +1,18 @@
+package Main;
+
+import javafx.application.Application;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+public class CustomerTerminalView extends Application {
+
+	@Override
+	public void start(Stage arg0) throws Exception {
+	
+		Text welcomeText = new Text("Welcome to the lot. Please enter your space number below.");
+		
+	}
+
+	
+
+}

@@ -1,0 +1,79 @@
+package Main;
+
+
+
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+public class CustomerTerminalView extends Application {
+
+	@Override
+	public void start(Stage main) throws Exception {
+		BorderPane borderPane = new BorderPane();
+		
+		
+	
+		VBox vbox = new VBox();
+		VBox dialPad = new VBox();
+		HBox welcomeBox = new HBox();
+		HBox slotNumberFieldBox = new HBox();
+		HBox buttonBox = new HBox();
+		HBox footer = new HBox();
+		
+		
+		
+			//top 
+			welcomeBox.setMinWidth(700);
+			welcomeBox.setPadding(new Insets(100, 0, 100, 185));
+		    welcomeBox.setStyle("-fx-background-color: #336699;");
+		    Text welcomeText = new Text("Welcome to the lot. Please enter your space number below.");
+			welcomeBox.getChildren().addAll(welcomeText);
+		
+			
+			//middle
+			slotNumberFieldBox.setMinWidth(700);
+			slotNumberFieldBox.setStyle("-fx-background-color: black;");
+			slotNumberFieldBox.setPadding(new Insets(0,0,0,270));
+			TextField slotNumberEntry = new TextField();
+			slotNumberFieldBox.getChildren().addAll(slotNumberEntry);
+		
+			buttonBox.setMinWidth(700);
+			Button nextButton = new Button("Next");
+			nextButton.setMinSize(100, 25);
+			buttonBox.setStyle("-fx-background-color: red;");
+			buttonBox.setPadding(new Insets(100,0,0,550));
+			buttonBox.getChildren().addAll(nextButton);
+			
+			//dialpad
+			dialPad.setMinSize(200, 200);
+			dialPad.setStyle("-fx-background-color: orange;");
+			dialPad.setPadding(new Insets(0,0,0,270));
+			
+			
+			//footer
+			
+			
+
+			
+			vbox.getChildren().addAll(welcomeBox, slotNumberFieldBox,dialPad, buttonBox);
+		
+		borderPane.getChildren().addAll(vbox);
+		Scene scene = new Scene(borderPane, 700, 600);
+		main.setScene(scene);
+		main.show();
+		main.centerOnScreen();
+	}
+
+	
+
+}

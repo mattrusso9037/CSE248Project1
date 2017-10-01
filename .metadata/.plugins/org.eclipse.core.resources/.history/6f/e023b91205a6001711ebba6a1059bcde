@@ -1,0 +1,39 @@
+package Main;
+
+public abstract class Vehicle {
+	private MotorcycleBehavior motorcycleBehavior;
+	private CarBehavior carBehavior;
+	private TruckBehavior truckBehavior;
+	
+	private final double MOTERCYCLE_PRICE_PER_HOUR = 20.00;
+	
+	private final double TRUCK_PRICE_PER_HOUR = 30.00;
+	private final double ALL_DAY_FLAT_FEE = 75.00;
+	// private final double TIME_LIMIT_EXCEEDED_PER_HOUR = 35.00;
+
+	public void setMotorcycleBehavior(MotorcycleBehavior motorcycleBehavior) {
+		this.motorcycleBehavior = motorcycleBehavior;
+	}
+
+	public void setcarBehavior(CarBehavior carBehavior) {
+		this.carBehavior = carBehavior;
+	}
+
+	public void setTruckBehavior(TruckBehavior truckBehavior) {
+		this.truckBehavior = truckBehavior;
+	}
+
+	public void chargeAsMotorcycle() {
+		motorcycleBehavior.setAsMotorcycle();
+	}
+
+	public void chargeAsCar() {
+		carBehavior.setAsCar();
+	}
+
+	public void chargeAsTruck() {
+		truckBehavior.setAsTruck();
+	}
+
+	public abstract void display();
+}

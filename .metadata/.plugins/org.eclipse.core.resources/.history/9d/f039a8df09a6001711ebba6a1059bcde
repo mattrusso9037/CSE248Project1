@@ -1,0 +1,11 @@
+package Main;
+
+public class Motorcycle implements VehicleBehavior {
+	private final double MOTERCYCLE_PRICE_PER_HOUR = 20.00;
+	
+	@Override
+	public void setVehicle(double price) {
+		price = MOTERCYCLE_PRICE_PER_HOUR;		
+	}
+
+}

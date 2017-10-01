@@ -1,0 +1,19 @@
+package Main;
+
+public abstract class Vehicle {
+	private VehicleBehavior vehicleBehavior;
+	private PriceBehavior priceBehavior;
+	
+
+	public void setVehicleBehavior(VehicleBehavior vehicleBehavior){
+		this.vehicleBehavior = vehicleBehavior;
+	}
+
+	public void setPriceBehavior(PriceBehavior priceBehavior){
+		this.priceBehavior = priceBehavior;
+	}
+
+	
+
+	public abstract void display();
+}

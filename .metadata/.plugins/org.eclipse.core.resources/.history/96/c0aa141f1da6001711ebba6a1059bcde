@@ -1,0 +1,60 @@
+package Main;
+
+
+
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+public class CustomerTerminalView extends Application {
+
+	@Override
+	public void start(Stage main) throws Exception {
+		BorderPane borderPane = new BorderPane();
+		
+		
+	
+		VBox vbox = new VBox();
+		HBox welcomeBox = new HBox();
+		HBox slotNumberFieldBox = new HBox();
+		
+		
+		
+		
+		slotNumberFieldBox.setMinWidth(700);
+		slotNumberFieldBox.setStyle("-fx-background-color: black;");
+		slotNumberFieldBox.setPadding(new Insets(100,0,0,175));
+		TextField slotNumberEntry = new TextField();
+		slotNumberFieldBox.getChildren().addAll(slotNumberEntry);
+		
+
+		welcomeBox.setMinWidth(700);
+		 welcomeBox.setPadding(new Insets(100, 0, 100, 175));
+//		    welcomeBox.setSpacing(10);
+		    welcomeBox.setStyle("-fx-background-color: #336699;");
+		    Text welcomeText = new Text("Welcome to the lot. Please enter your space number below.");
+			welcomeBox.getChildren().addAll(welcomeText);
+			
+			
+
+			
+			vbox.getChildren().addAll(welcomeBox, slotNumberFieldBox);
+		
+		borderPane.getChildren().addAll(vbox);
+		Scene scene = new Scene(borderPane, 700, 600);
+		main.setScene(scene);
+		main.show();
+		main.centerOnScreen();
+	}
+
+	
+
+}

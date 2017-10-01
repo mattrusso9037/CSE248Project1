@@ -1,0 +1,5 @@
+package Main;
+
+public interface SlotBehavior {
+	public void setSlot(int slot);
+}

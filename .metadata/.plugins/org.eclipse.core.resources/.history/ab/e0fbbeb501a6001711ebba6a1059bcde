@@ -1,0 +1,9 @@
+package Main;
+
+public interface MotorcycleBehavior {
+
+	
+	
+	public void setAsMotorcycle();
+	
+}

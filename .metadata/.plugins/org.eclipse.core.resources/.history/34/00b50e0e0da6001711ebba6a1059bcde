@@ -1,0 +1,13 @@
+package Main;
+
+public class SetAsCar  implements VehicleBehavior{
+	private final double CAR_PRICE_PER_HOUR = 25.00;
+
+	@Override
+	public void setVehicle() {
+	
+		System.out.println("this is a car");
+		
+	}
+
+}

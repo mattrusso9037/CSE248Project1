@@ -1,0 +1,21 @@
+package Main;
+
+public class Lot {
+
+	private static Lot _lot;
+
+	private Lot() {
+
+	}
+
+	public static Lot getALot() {
+		if (_lot == null) {
+			_lot = new Lot();
+			System.out.println("Lot created.");
+		} else {
+			System.out.println("There can only be one lot.");
+		}
+		return _lot;
+	}
+
+}

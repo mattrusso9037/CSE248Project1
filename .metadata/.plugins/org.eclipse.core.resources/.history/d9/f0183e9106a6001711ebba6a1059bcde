@@ -1,0 +1,19 @@
+package Main;
+
+public abstract class Vehicle {
+	private VehicleBehavior vehicleBehavior;
+	
+	
+	
+
+//	private final double ALL_DAY_FLAT_FEE = 75.00;
+	// private final double TIME_LIMIT_EXCEEDED_PER_HOUR = 35.00;
+
+	public void setCarBehavior(VehicleBehavior vehicleBehavior){
+		this.vehicleBehavior = vehicleBehavior;
+	}
+
+
+
+	public abstract void display();
+}

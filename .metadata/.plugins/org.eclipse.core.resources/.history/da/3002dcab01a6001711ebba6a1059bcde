@@ -1,0 +1,24 @@
+package Main;
+
+public abstract class Vehicle {
+	private MotorcycleBehavior motorcycleBehavior;
+	private CarBehavior carBehavior;
+	private TruckBehavior truckBehavior;
+
+	
+	public void setMotorcycleBehavior( MotorcycleBehavior motorcycleBehavior) {
+		this.motorcycleBehavior = motorcycleBehavior;
+	}
+	
+	public void setcarBehavior( CarBehavior carBehavior) {
+		this.carBehavior = carBehavior;
+	}
+	
+	public void setTruckBehavior(TruckBehavior truckBehavior){
+		this.truckBehavior = truckBehavior;
+	}
+	
+	
+	
+	public abstract void display();
+}

@@ -1,0 +1,15 @@
+package Main;
+
+import java.util.stream.IntStream;
+
+public class CarSlotNumber implements SlotBehavior {
+	int slotNumbers[] = IntStream.rangeClosed(0, 25).toArray();
+
+	@Override
+	public void setSlot(int slot) {
+		
+		
+	}
+	
+	
+}
