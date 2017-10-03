@@ -7,7 +7,8 @@ import com.sun.corba.se.impl.orbutil.graph.Node;
 public class Lot {
 
 	private static Lot _lot;
-	private LinkedList carList = new LinkedList();
+	private LinkedList vehicleList = new LinkedList();
+	
 
 	private Lot() {
 
@@ -23,13 +24,14 @@ public class Lot {
 		return _lot;
 	}
 	
-	public void insertCar(Car car){
-		carList.add(car);
+	public void insertVehicle(Vehicle vehicle){
+		vehicleList.add(vehicle);
+		System.out.println("Vehicle added to lot: linked list vehicleList");
 	}
 
 		public void displayLot(){
 		
-			    System.out.println(carList);
+			    System.out.println(vehicleList.size());
 			
 			}
 

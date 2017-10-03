@@ -4,7 +4,7 @@ public class Demo {
 
 	public static void main(String[] args) {
 		CustomerTerminalView.launch(CustomerTerminalView.class);
-		Lot lot = Lot.getALot();
+		
 		
 		Car c1 = new Car();
 		Car c2 = new Car();
@@ -14,9 +14,9 @@ public class Demo {
 	c1.display();
 	
 	
-	lot.insertCar(c1);
-	lot.insertCar(c2);
-	lot.displayLot();
+//	lot.insertCar(c1);
+//	lot.insertCar(c2);
+//	lot.displayLot();
 	}
 
 }

@@ -1,0 +1,6 @@
+package Main;
+
+public interface PriceBehavior {
+	public double setPrice(double price);
+	
+}

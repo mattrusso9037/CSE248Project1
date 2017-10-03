@@ -1,0 +1,16 @@
+package Main;
+
+public class CarPrice implements PriceBehavior {
+	private final double CAR_PRICE_PER_HOUR = 25.00;
+	@Override
+	public double setPrice(double price) {
+	
+		return price = CAR_PRICE_PER_HOUR; 
+	}
+	@Override
+	public String toString() {
+		return "CarPrice [CAR_PRICE_PER_HOUR=" + CAR_PRICE_PER_HOUR + "]";
+	}
+	
+
+}
