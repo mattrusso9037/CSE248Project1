@@ -1,0 +1,17 @@
+package Main;
+
+public class Truck extends Vehicle {
+
+	@Override
+	public void display() {
+		
+	}
+
+	@Override
+	public int calculate(int hours, Vehicle vehicle) {
+
+		return super.calculate(hours, vehicle);
+	}
+
+	
+}

@@ -25,7 +25,14 @@ public class CustomerTerminalView extends Application {
 
 	@Override
 	public void start(Stage main) throws Exception {
-		Lot lot = Lot.getALot();
+		final Lot lot = Lot.getALot();
+		
+		EmployeeTerminalView employeeTerminal = new EmployeeTerminalView();
+		Stage employee = new Stage();
+		employeeTerminal.start(employee);
+		
+		
+		
 		BorderPane borderPane = new BorderPane();
 		
 		
@@ -59,7 +66,7 @@ public class CustomerTerminalView extends Application {
 		
 		
 			//top 
-			welcomeBox.setMinWidth(700);
+			welcomeBox.setMaxHeight(20);
 			welcomeBox.setPadding(new Insets(100, 0, 100, 0));
 		    welcomeBox.setStyle("-fx-background-color: #98AFC7;");
 		    Text welcomeText = new Text("Please enter the space number and duration below.");
@@ -73,6 +80,7 @@ public class CustomerTerminalView extends Application {
 			slotNumberFieldBox.setPadding(new Insets(0,0,0,278));
 			slotNumberFieldBox.setSpacing(50);
 			TextField slotNumberEntry = new TextField();
+			slotNumberEntry.setMaxWidth(125);
 			String[] hourChoice = {"1", "2", "3", "12"};
 			ComboBox timeChooser = new ComboBox();
 			timeChooser.setValue("Number Of Hours");
@@ -81,7 +89,9 @@ public class CustomerTerminalView extends Application {
 			
 			
 			
-			slotNumberFieldBox.getChildren().addAll(slotNumberEntry, timeChooser);
+			slotNumberFieldBox.getChildren().addAll(timeChooser);
+			slotNumberFieldBox.setAlignment(Pos.CENTER_RIGHT);
+			slotNumberFieldBox.setPadding(new Insets(0,20,0,0));
 			
 			
 		
@@ -91,11 +101,15 @@ public class CustomerTerminalView extends Application {
 			buttonBox.setStyle("-fx-background-color: #98AFC7;");
 			buttonBox.setPadding(new Insets(50,0,0,500));
 			buttonBox.getChildren().addAll(nextButton);
+			buttonBox.setAlignment(Pos.CENTER_RIGHT);
+			buttonBox.setPadding(new Insets(0,20,0,0));
 			
 			//dialpad
-			dialPad.setMinSize(700, 250);
+			dialPad.setMinSize(700, 300);
 			dialPad.setStyle("-fx-background-color: #98AFC7;");
 			dialPad.setAlignment(Pos.CENTER);
+			dialPad.setSpacing(5);
+			
 			
 			//dialpad rows
 			dialPadRow1.setMinSize(10, 62);
@@ -162,20 +176,19 @@ public class CustomerTerminalView extends Application {
 			dialPadRow3.getChildren().addAll(sevenButton, eightButton, nineButton);
 			dialPadRow4.getChildren().addAll(backspaceButton, zeroButton, clearButton);
 			
-			dialPad.setSpacing(5);
-			dialPad.setMinHeight(300);
+			
 			
 			dialPadRow1.setSpacing(5);
 			dialPadRow2.setSpacing(5);
 			dialPadRow3.setSpacing(5);
 			dialPadRow4.setSpacing(5);
-			dialPad.getChildren().addAll(dialPadRow1, dialPadRow2, dialPadRow3, dialPadRow4);
+			dialPad.getChildren().addAll(slotNumberEntry,dialPadRow1, dialPadRow2, dialPadRow3, dialPadRow4);
 			
+			//footer
 			Text carRateText = new Text("The rate for cars is $25 per hour");
 			Text bikeRateText = new Text("The rate for motorcycles is $20 per hour");
 			Text truckRateText = new Text("The rate for trucks is $30 per hour");
 			Text allDayRateText = new Text("The all day rate (12 hours) for any vehicle is $150");
-			footer.setMinWidth(700);
 			footer.setStyle("-fx-background-color: #E5E4E2;");
 			footer.setSpacing(7);
 			footer.getChildren().addAll(carRateText, bikeRateText, truckRateText, allDayRateText);
@@ -249,24 +262,69 @@ public class CustomerTerminalView extends Application {
 			
 			
 			nextButton.setOnAction(e -> {
-				int id=0;
+				
+				//car
 					if (Integer.parseInt(slotNumberEntry.getText()) <= 10){
-						Car car = new Car(Integer.parseInt(slotNumberEntry.getText()));
-						car.setPriceBehavior(new CarPrice());
-						car.calculate(Integer.parseInt((String) timeChooser.getValue()), car);
 						
-						lot.insertVehicle(car);
+						Car car = new Car(slotNumberEntry.getText(), Integer.parseInt((String) timeChooser.getValue()));
+						car.setPrice(car.calculate(car.getHours(), car));
+						;
 						
-						Alert details = new Alert(AlertType.CONFIRMATION);
-						details.setTitle("Confirmation");
-						details.setContentText("Spot Number: " + slotNumberEntry.getText() + "\nReturn time: " + car.getReturnTime() + 
+						lot.insertVehicle(slotNumberEntry.getText(), car);
+					
+					
+						
+						//confirmation
+						Alert detailAlert = new Alert(AlertType.CONFIRMATION);
+						detailAlert.setTitle("Confirmation");
+						detailAlert.setContentText("Space Number: " + slotNumberEntry.getText() + "\nReturn time: " + car.getReturnTime() + 
 								"\nPrice: $" + car.calculate(Integer.parseInt((String) timeChooser.getValue()), car));
-						details.show();
+						detailAlert.show();
+						slotNumberEntry.clear();
+						timeChooser.setValue("Number Of Hours");
 						
-						car.display();
+					
+					
+					//truck
+					} else if (Integer.parseInt(slotNumberEntry.getText()) > 10 && Integer.parseInt(slotNumberEntry.getText()) <= 20){
+						Truck truck = new Truck(slotNumberEntry.getText(), Integer.parseInt((String) timeChooser.getValue()));
+						truck.setPrice(truck.calculate(truck.getHours(), truck));
+						
+						lot.insertVehicle(slotNumberEntry.getText(), truck);
+					
+					
+						
+						//confirmation
+						Alert detailAlert = new Alert(AlertType.CONFIRMATION);
+						detailAlert.setTitle("Confirmation");
+						detailAlert.setContentText("Space Number: " + slotNumberEntry.getText() + "\nReturn time: " + truck.getReturnTime() + 
+								"\nPrice: $" + truck.calculate(Integer.parseInt((String) timeChooser.getValue()), truck));
+						detailAlert.show();
+						slotNumberEntry.clear();
+						timeChooser.setValue("Number Of Hours");
+					
+					//bike
+					} else if (Integer.parseInt(slotNumberEntry.getText()) > 20 && Integer.parseInt(slotNumberEntry.getText()) <= 30){
+						Bike bike = new Bike(slotNumberEntry.getText(), Integer.parseInt((String) timeChooser.getValue()));
+						bike.setPrice(bike.calculate(bike.getHours(), bike));
+						
+						lot.insertVehicle(slotNumberEntry.getText(), bike);
+					
+					
+						
+						//confirmation
+						Alert detailAlert = new Alert(AlertType.CONFIRMATION);
+						detailAlert.setTitle("Confirmation");
+						detailAlert.setContentText("Space Number: " + slotNumberEntry.getText() + "\nReturn time: " + bike.getReturnTime() + 
+								"\nPrice: $" + bike.calculate(Integer.parseInt((String) timeChooser.getValue()), bike));
+						detailAlert.show();
+						slotNumberEntry.clear();
+						timeChooser.setValue("Number Of Hours");
+					}
+						
 					//ticket prints when alert is confirmed
-						//for now it prints to the console
-					} 
+					//for now the ticket is printed to the console
+					
 				
 			
 			});
@@ -282,20 +340,36 @@ public class CustomerTerminalView extends Application {
 			
 			
 			
-			//footer
+			
 			
 			
 
-			
-			vbox.getChildren().addAll(welcomeBox, slotNumberFieldBox,dialPad, buttonBox, footer);
+			VBox center = new VBox();
+			center.getChildren().addAll(slotNumberFieldBox,dialPad, buttonBox);
+		
+
+			vbox.getChildren().addAll(welcomeBox, center, footer);
 			vbox.setMinSize(main.getWidth(), main.getHeight());
 		borderPane.getChildren().addAll(vbox);
+		borderPane.setBottom(footer);
+		borderPane.setTop(welcomeBox);
+		borderPane.setCenter(center);
 		
 		Scene scene = new Scene(borderPane, 700, 750);
+		main.setTitle("Customer Terminal");
+		main.setX(0);
+		main.setY(0);
 		main.setScene(scene);
 		main.show();
-		main.centerOnScreen();
+//		main.centerOnScreen();
 	}
+
+	private void car(String text) {
+		
+		
+	}
+
+	
 
 	
 

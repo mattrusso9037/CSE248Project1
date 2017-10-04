@@ -1,0 +1,93 @@
+package Main;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+
+public class Vehicle {
+	private int hours;
+	private String id;
+	private String slotNumber;
+	private int price;
+
+
+
+	private VehicleBehavior vehicleBehavior;
+	private PriceBehavior priceBehavior;
+	private SlotBehavior slotBehavior;
+	private LocalDateTime now = LocalDateTime.now();
+	private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM-dd-yyyy hh:mm a");
+	private String format = now.format(formatter);
+	
+	
+
+	public Vehicle(){
+		
+	}
+	public Vehicle(String slotNumber, int hours) {
+		this.slotNumber = slotNumber;
+		this.hours = hours;
+		
+	}
+	
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+
+	public int getHours() {
+		return hours;
+	}
+	public void setHours(int hours) {
+		this.hours = hours;
+	}
+	public void display() {
+		System.out.println("****************************************************");
+		System.out.println("Ticket " + getNow());
+		System.out.println("Parking costs: $" + price + "\nSpace number: " + getSlotNumber());
+		System.out.println("Return time: " + getReturnTime(hours));
+		System.out.println("Please bring ticket to window when retrieving vehicle.");
+	}
+
+	public String getNow() {
+		return format;
+	}
+
+	public String getReturnTime(int hours) {
+		this.hours = hours;
+		String formatReturn = now.plusHours(hours).format(formatter);
+		return formatReturn;
+	}
+	
+	public int calculate(int hours, Vehicle vehicle){
+		return hours;
+		
+	}
+
+	public String getSlotNumber() {
+		return slotNumber;
+	}
+
+	public void setSlotNumber(String slotNumber) {
+		this.slotNumber = slotNumber;
+	}
+	
+
+
+
+}
+//public void setVehicleBehavior(VehicleBehavior vehicleBehavior) {
+//	this.vehicleBehavior = vehicleBehavior;
+//}
+//
+//public void setPriceBehavior(PriceBehavior priceBehavior) {
+//	this.priceBehavior = priceBehavior;
+//}
+//
+//public void setSlotBehavior(SlotBehavior slotBehavior) {
+//	this.slotBehavior = slotBehavior;
+//}

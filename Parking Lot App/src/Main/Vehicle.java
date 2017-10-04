@@ -5,39 +5,72 @@ import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 
 public class Vehicle {
-	private long hours;
-	private VehicleBehavior vehicleBehavior;
-	private PriceBehavior priceBehavior;
-	private SlotBehavior slotBehavior;
+	private int hours;
+	private String id;
+	private String slotNumber;
+	private int price;
 	private LocalDateTime now = LocalDateTime.now();
 	private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM-dd-yyyy hh:mm a");
 	private String format = now.format(formatter);
+	
+	
 
-	public void setVehicleBehavior(VehicleBehavior vehicleBehavior) {
-		this.vehicleBehavior = vehicleBehavior;
+	public Vehicle(){
+		
+	}
+	public Vehicle(String slotNumber, int hours) {
+		this.slotNumber = slotNumber;
+		this.hours = hours;
+		
+	}
+	
+	public int getPrice() {
+		return price;
 	}
 
-	public void setPriceBehavior(PriceBehavior priceBehavior) {
-		this.priceBehavior = priceBehavior;
+	public void setPrice(int price) {
+		this.price = price;
 	}
 
-	public void setSlotBehavior(SlotBehavior slotBehavior) {
-		this.slotBehavior = slotBehavior;
-	}
 
+	public int getHours() {
+		return hours;
+	}
+	public void setHours(int hours) {
+		this.hours = hours;
+	}
 	public void display() {
-
+		System.out.println("****************************************************");
+		System.out.println("Ticket \n" + getNow());
+		System.out.println("Space number: " + getSlotNumber() + "\nParking costs: $" + price );
+		System.out.println("Return time: " + getReturnTime(hours));
+		System.out.println("Please bring ticket to window when retrieving vehicle.");
 	}
 
 	public String getNow() {
 		return format;
-
 	}
 
-	public String getReturnTime(long hours) {
+	public String getReturnTime(int hours) {
 		this.hours = hours;
 		String formatReturn = now.plusHours(hours).format(formatter);
 		return formatReturn;
 	}
+	
+	public int calculate(int hours, Vehicle vehicle){
+		return hours;
+		
+	}
+
+	public String getSlotNumber() {
+		return slotNumber;
+	}
+
+	public void setSlotNumber(String slotNumber) {
+		this.slotNumber = slotNumber;
+	}
+	
+
+
 
 }

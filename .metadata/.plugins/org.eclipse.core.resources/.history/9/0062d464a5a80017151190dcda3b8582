@@ -1,0 +1,124 @@
+package Main;
+
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+
+public class EmployeeTerminalView extends CustomerTerminalView {
+
+	@Override
+	public void start(Stage employee) throws Exception {
+		BorderPane borderPane = new BorderPane();
+		VBox vbox = new VBox();
+		VBox dialPad = new VBox();
+		HBox welcomeBox = new HBox();
+		VBox slotNumberFieldBox = new VBox();
+		HBox buttonBox = new HBox();
+		VBox footer = new VBox();
+
+		Button searchButton = new Button("search");
+		searchButton.setMinWidth(100);
+		searchButton.setAlignment(Pos.CENTER);
+		
+		
+		
+		Label spaceNumberText = new Label("space number");
+		Label returnTimeText = new Label("return time");
+		spaceNumberText.setAlignment(Pos.LEFT);
+		returnTimeText.setAlignment(Pos.LEFT);
+		
+		
+		
+		
+		//top 
+		welcomeBox.setMinHeight(200);
+		welcomeBox.setPadding(new Insets(100, 0, 100, 0));
+	    welcomeBox.setStyle("-fx-background-color: #98AFC7;");
+	    Text welcomeText = new Text("Enter ticket information below");
+		welcomeBox.getChildren().addAll(welcomeText);
+		welcomeBox.setAlignment(Pos.CENTER);
+		
+		// middle
+		slotNumberFieldBox.setMinWidth(700);
+		slotNumberFieldBox.setStyle("-fx-background-color: #98AFC7;");
+		slotNumberFieldBox.setPadding(new Insets(0, 0, 0, 278));
+		slotNumberFieldBox.setSpacing(50);
+		TextField slotNumberEntry = new TextField();
+		TextField returnTimeEntry = new TextField();
+		slotNumberEntry.setMaxWidth(100);
+		returnTimeEntry.setMaxWidth(100);
+//		String[] hourChoice = { "1", "2", "3", "12" };
+//		ComboBox timeChooser = new ComboBox();
+//		timeChooser.setValue("Number Of Hours");
+//		timeChooser.getItems().addAll(hourChoice);
+
+		
+		slotNumberFieldBox.getChildren().addAll(spaceNumberText, slotNumberEntry, returnTimeText, returnTimeEntry, searchButton);
+
+		Text carRateText = new Text("The rate for cars is $25 per hour");
+		Text bikeRateText = new Text("The rate for motorcycles is $20 per hour");
+		Text truckRateText = new Text("The rate for trucks is $30 per hour");
+		Text allDayRateText = new Text("The all day rate (12 hours) for any vehicle is $150");
+		footer.setMinWidth(700);
+		footer.setStyle("-fx-background-color: #E5E4E2;");
+		footer.setSpacing(7);
+		footer.getChildren().addAll(carRateText, bikeRateText, truckRateText, allDayRateText);
+		footer.setAlignment(Pos.CENTER);
+
+//		nextButton.setOnAction(e -> {
+//			int id = 0;
+//			if (Integer.parseInt(slotNumberEntry.getText()) <= 10) {
+//				Car car = new Car();
+//
+//				// car.setPriceBehavior(new CarPrice());
+//				car.calculate(Integer.parseInt((String) timeChooser.getValue()), car);
+//				car(Integer.parseInt(slotNumberEntry.getText()), car.getReturnTime());
+//				// lot.insertVehicle(car);
+//
+//				Alert details = new Alert(AlertType.CONFIRMATION);
+//				details.setTitle("Confirmation");
+//				details.setContentText(
+//						"Spot Number: " + slotNumberEntry.getText() + "\nReturn time: " + car.getReturnTime()
+//								+ "\nPrice: $" + car.calculate(Integer.parseInt((String) timeChooser.getValue()), car));
+//				details.show();
+//
+//				car.display();
+//				// ticket prints when alert is confirmed
+//				// for now it prints to the console
+//			}
+//
+//		});
+
+		// footer
+
+		vbox.getChildren().addAll(welcomeBox, slotNumberFieldBox, dialPad, buttonBox, footer);
+		vbox.setMinSize(employee.getWidth(), employee.getHeight());
+		borderPane.getChildren().addAll(vbox);
+		borderPane.setBottom(footer);
+		borderPane.setTop(welcomeBox);
+		borderPane.setCenter(slotNumberFieldBox);
+		Scene scene = new Scene(borderPane, 700, 750);
+		employee.setX(700);
+		employee.setY(0);
+		employee.setScene(scene);
+		employee.show();
+	}
+
+	private void car(int parseInt, String returnTime) {
+		// TODO Auto-generated method stub
+
+	}
+}

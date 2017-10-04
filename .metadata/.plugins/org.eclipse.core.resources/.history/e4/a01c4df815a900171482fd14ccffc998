@@ -1,0 +1,62 @@
+package Main;
+
+import java.util.*;
+import java.util.HashMap;
+import java.util.LinkedList;
+
+
+
+
+public class Lot {
+
+	private static Lot _lot;
+	private LinkedList vehicleList = new LinkedList();
+	private Vehicle vehicle;
+	Map<String, Vehicle> vehiclesMap = new HashMap<String, Vehicle>();
+	Vehicle value;
+
+	
+	
+	
+	private Lot() {
+
+	}
+	
+
+	public static Lot getALot() {
+		if (_lot == null) {
+			_lot = new Lot();
+			System.out.println("Lot created.");
+		} else {
+			System.out.println("There can only be one lot.");
+		}
+		return _lot;
+	}
+	
+	public void insertVehicle(String slotNumber, Vehicle vehicle){
+
+		vehiclesMap.put(vehicle.getSlotNumber(), vehicle);
+		System.out.println("Vehicle added to lot");
+		value = vehiclesMap.get(vehicle.getSlotNumber());
+		value.display();
+	}
+	
+	public Vehicle findVehicleById(String slotNumber) {
+		value = vehiclesMap.get(slotNumber);
+		return value;
+		
+		
+	}
+
+		public void displayMapValue(){
+			System.out.println(value.getSlotNumber());
+		}
+		
+		public void displayLot(){
+		
+			    System.out.println(vehicleList.size());
+			
+			}
+
+		}
+

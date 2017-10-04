@@ -1,0 +1,87 @@
+package Main;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+
+public class Vehicle {
+	private int hours;
+	private String id;
+	private String slotNumber;
+	private int price;
+
+
+
+	private VehicleBehavior vehicleBehavior;
+	private PriceBehavior priceBehavior;
+	private SlotBehavior slotBehavior;
+	private LocalDateTime now = LocalDateTime.now();
+	private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM-dd-yyyy hh:mm a");
+	private String format = now.format(formatter);
+	
+	
+
+	public Vehicle(){
+		
+	}
+	public Vehicle(String slotNumber, long hours) {
+		this.slotNumber = slotNumber;
+		this.hours = hours;
+		
+	}
+	
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+
+	public long getHours() {
+		return hours;
+	}
+	public void setHours(int hours) {
+		this.hours = hours;
+	}
+	public void display() {
+
+	}
+
+	public String getNow() {
+		return format;
+	}
+
+	public String getReturnTime(int hours) {
+		this.hours = hours;
+		String formatReturn = now.plusHours(hours).format(formatter);
+		return formatReturn;
+	}
+	
+	public int calculate(long hours, Vehicle vehicle){
+		return (int) hours;
+		
+	}
+
+	public String getSlotNumber() {
+		return slotNumber;
+	}
+
+	public void setSlotNumber(String slotNumber) {
+		this.slotNumber = slotNumber;
+	}
+
+
+}
+//public void setVehicleBehavior(VehicleBehavior vehicleBehavior) {
+//	this.vehicleBehavior = vehicleBehavior;
+//}
+//
+//public void setPriceBehavior(PriceBehavior priceBehavior) {
+//	this.priceBehavior = priceBehavior;
+//}
+//
+//public void setSlotBehavior(SlotBehavior slotBehavior) {
+//	this.slotBehavior = slotBehavior;
+//}

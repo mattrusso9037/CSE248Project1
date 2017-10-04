@@ -1,0 +1,14 @@
+package Main;
+
+public class Truck extends Vehicle {
+	private final int Truck_PRICE_PER_HOUR = 30;
+	private final int ALL_DAY_PRICE = 150;
+	
+	@Override
+	public int calculate(int hours, Vehicle vehicle) {
+		// TODO Auto-generated method stub
+		return super.calculate(hours, vehicle);
+	}
+
+	
+}
