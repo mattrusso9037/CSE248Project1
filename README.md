@@ -1,1 +1,3 @@
-# CSE248Project1
+# Parking Lot App
+
+This application is designed for a parking garage with one employee. The employee will grant the customer entry to the parking lot as long as there is space available. The customer parks their car and will interact with the customer terminal, entering their space number and the amount of time they will be leaving their car. The terminal will then print out a ticket for the customer. Upon returning to retrieve their car, the customer will bring their ticket to the front desk to pay. The employee searches for the vehicle based on the parking space number on the ticket. The system will tell the employee how much money is owed based on vehicle type. A late fee will be added for all customers more than 15 minutes late to pick up their car.
