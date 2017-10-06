@@ -1,0 +1,23 @@
+
+
+#welcomeBox {
+	-fx-background-color: #98AFC7;
+	-fx-max-height: 20;
+	-fx-padding: 100,0,100,0;
+	-fx-alignment: center;
+}
+
+#footer {
+	-fx-alignment: center;
+	-fx-background-color: #E5E4E2;
+	-fx-min-width: 700;
+	-fx-spacing: 7;
+}
+
+#hoursBox {
+	-fx-background-color: #98AFC7;
+	-fx-min-width: 700;
+	-fx-padding: 0,0,0,278;
+	
+	
+}

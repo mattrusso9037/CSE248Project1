@@ -21,5 +21,6 @@
 <fullyQualifiedTypeName name="sun.awt.SunHints.Value"/>
 <fullyQualifiedTypeName name="Main.Lot"/>
 <fullyQualifiedTypeName name="javafx.scene.layout.FlowPane"/>
+<fullyQualifiedTypeName name="com.sun.javafx.tk.Toolkit.Task"/>
 <fullyQualifiedTypeName name="javafx.application.Platform"/>
 </qualifiedTypeNameHistroy>

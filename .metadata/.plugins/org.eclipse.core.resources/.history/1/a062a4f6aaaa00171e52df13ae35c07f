@@ -1,0 +1,28 @@
+.label {
+	-fx-min-width: 50;
+	-fx-min-height: 30;
+	-fx-alignment: center;
+}
+.button{
+	-fx-min-width: 100;
+}
+
+#footer{
+	-fx-alignment: center;
+	-fx-background-color: #E5E4E2;
+	-fx-min-width: 700;
+	-fx-spacing: 7;
+}
+
+#slotNumberFieldBox {
+	-fx-alignment: center;
+	-fx-background-color: #98AFC7;
+	-fx-spacing: 5;
+}
+
+#welcomeBox {
+	-fx-background-color: #98AFC7;
+	-fx-min-height: 200;
+	-fx-padding: 100,0,100,0;
+	-fx-alignment: center;
+}

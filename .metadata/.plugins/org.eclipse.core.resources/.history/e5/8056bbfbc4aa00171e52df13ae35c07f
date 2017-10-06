@@ -1,0 +1,11 @@
+package Main;
+
+public class App {
+
+	public static void main(String[] args) {
+		final Lot lot = Lot.createALot();
+		ValetTerminalView.launch(ValetTerminalView.class);
+	
+	}
+
+}

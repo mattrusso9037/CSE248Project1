@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>14</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>630</x>
+      <y>1148</y>
+      <w>798</w>
+      <h>602</h>
+    </coordinates>
+    <panel_attributes>Main::Vehicle
+--
+-hours: int
+-price: int
+-ALL_DAY_PRICE = 150: int
+-LATE_FEE = 50: int
+-slotNumber: String
+-now = LocalDateTime.now(): LocalDateTime
+-formatter = DateTimeFormatter.ofPattern("MMM-dd-yyyy hh:mm a"): DateTimeFormatter
+-format = now.format(formatter): String
+--
++Vehicle(String slotNumber, int hours): ctor
++getPrice(): int
++setPrice(int price): void
++getHours(): int
++setHours(int hours): void
++display(): void
++getNow(): String
++getReturnTime(int hours): String
++calculate(int hours, Vehicle vehicle): int
++getSlotNumber(): String
++setSlotNumber(String slotNumber): void
++getALL_DAY_PRICE(): int
++getLATE_FEE(): int
++getReturnTime(): LocalDateTime
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>672</x>
+      <y>616</y>
+      <w>658</w>
+      <h>294</h>
+    </coordinates>
+    <panel_attributes>Main::Lot
+--
+-_lot: Lot
+~vehiclesMap = new HashMap&lt;String, Vehicle&gt;(): Map&lt;String, Vehicle&gt;
+~value: Vehicle
+--
+-Lot(): ctor
++createALot(): Lot
++getLot(): Lot
++insertVehicle(String slotNumber, Vehicle vehicle): void
++findVehicleById(String slotNumber): Vehicle
++displayMapValue(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1316</x>
+      <y>1932</y>
+      <w>378</w>
+      <h>154</h>
+    </coordinates>
+    <panel_attributes>Main::Bike
+--
+-BIKE_PRICE_PER_HOUR = 20: int
+--
++Bike(String slotNumber, int hours): ctor
++calculate(int hours, Vehicle vehicle): int
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>420</x>
+      <y>1932</y>
+      <w>364</w>
+      <h>154</h>
+    </coordinates>
+    <panel_attributes>Main::Car
+--
+-CAR_PRICE_PER_HOUR = 25: int
+--
++Car(String slotNumber, int hours): ctor
++calculate(int hours, Car car): int
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>826</x>
+      <y>1932</y>
+      <w>392</w>
+      <h>154</h>
+    </coordinates>
+    <panel_attributes>Main::Truck
+--
+-TRUCK_PRICE_PER_HOUR = 30: int
+--
++Truck(String slotNumber, int hours): ctor
++calculate(int hours, Vehicle vehicle): int
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>882</x>
+      <y>0</y>
+      <w>238</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>Main::App
+--
+--
++main(String[] args): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>868</x>
+      <y>308</y>
+      <w>280</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>Main::CustomerTerminalView
+--
+--
++start(Stage main): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1302</x>
+      <y>308</y>
+      <w>308</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>Main::FrontWindowTerminalView
+--
+--
++start(Stage employee): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1274</x>
+      <y>1736</y>
+      <w>252</w>
+      <h>224</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;160.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1022</x>
+      <y>1736</y>
+      <w>42</w>
+      <h>210</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>616</x>
+      <y>1736</y>
+      <w>196</w>
+      <h>224</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>120.0;10.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1022</x>
+      <y>896</y>
+      <w>42</w>
+      <h>266</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;170.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>980</x>
+      <y>84</y>
+      <w>42</w>
+      <h>252</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;160.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1134</x>
+      <y>350</y>
+      <w>196</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
+  </element>
+</diagram>

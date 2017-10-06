@@ -1,0 +1,83 @@
+package Main;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+
+public class Vehicle {
+	private int hours;
+	private int price;
+	private final int ALL_DAY_PRICE = 150;
+	private final int LATE_FEE = 50;
+
+	private String slotNumber;
+
+	private LocalDateTime now = LocalDateTime.now();
+	private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM-dd-yyyy hh:mm a");
+	private String format = now.format(formatter);
+
+	public Vehicle(String slotNumber, int hours) {
+		this.slotNumber = slotNumber;
+		this.hours = hours;
+
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public int getHours() {
+		return hours;
+	}
+
+	public void setHours(int hours) {
+		this.hours = hours;
+	}
+
+	public void display() {
+		System.out.println("****************************************************");
+		System.out.println("Ticket \n" + getNow());
+		System.out.println("Space number: " + getSlotNumber() + "\nParking costs: $" + price);
+		System.out.println("Return time: " + getReturnTime(hours));
+		System.out.println("Please bring ticket to window when retrieving vehicle.");
+	}
+
+	public String getNow() {
+		return format;
+	}
+
+	public String getReturnTime(int hours) {
+		this.hours = hours;
+		String formatReturn = now.plusHours(hours).format(formatter);
+		return formatReturn;
+	}
+
+	public int calculate(int hours, Vehicle vehicle) {
+		return hours;
+	}
+
+	public String getSlotNumber() {
+		return slotNumber;
+	}
+
+	public void setSlotNumber(String slotNumber) {
+		this.slotNumber = slotNumber;
+	}
+
+	public int getALL_DAY_PRICE() {
+		return ALL_DAY_PRICE;
+	}
+
+	public int getLATE_FEE() {
+		return LATE_FEE;
+	}
+
+	public String getReturnTime() {
+		return getReturnTime(getHours());
+	}
+
+}

@@ -29,10 +29,10 @@ public class CustomerTerminalView extends Application {
 	@Override
 	public void start(Stage main) throws Exception {
 
-		final Lot lot = Lot.getALot();
+		final Lot lot = Lot.createALot();
 
 		// start employee terminal
-		EmployeeTerminalView employeeTerminal = new EmployeeTerminalView();
+		FrontWindowTerminalView employeeTerminal = new FrontWindowTerminalView();
 		Stage employee = new Stage();
 		employeeTerminal.start(employee);
 
@@ -48,6 +48,12 @@ public class CustomerTerminalView extends Application {
 		HBox hoursBox = new HBox();
 		HBox buttonBox = new HBox();
 		VBox footer = new VBox();
+		
+		welcomeBox.setId("welcomeBox");
+		hoursBox.setId("hoursBox");
+		dialPad.setId("dialPad");
+		buttonBox.setId("buttonBox");
+		footer.setId("footer");
 
 		Button oneButton = new Button();
 		Button twoButton = new Button();
@@ -61,31 +67,24 @@ public class CustomerTerminalView extends Application {
 		Button zeroButton = new Button();
 		Button backspaceButton = new Button();
 		Button clearButton = new Button();
+		
+		Alert detailAlert = new Alert(AlertType.CONFIRMATION);
+		detailAlert.setTitle("Confirmation");
 
-		// top
-		welcomeBox.setMaxHeight(20);
-		welcomeBox.setPadding(new Insets(100, 0, 100, 0));
-		welcomeBox.setStyle("-fx-background-color: #98AFC7;");
-		Text welcomeText = new Text("Please enter the space number and duration below.");
+		Label welcomeText = new Label("Enter space number and duration below");
 		welcomeBox.getChildren().addAll(welcomeText);
-		welcomeBox.setAlignment(Pos.CENTER);
-
-		// box to hold middle contents
-		hoursBox.setMinWidth(700);
-		hoursBox.setStyle("-fx-background-color: #98AFC7;");
-		hoursBox.setPadding(new Insets(0, 0, 0, 278));
-		hoursBox.setSpacing(50);
+		
 		TextField slotNumberEntry = new TextField();
 		slotNumberEntry.setMaxWidth(125);
+		
 		String[] hourChoice = { "1", "2", "3", "12" };
 		ComboBox timeChooser = new ComboBox();
 		timeChooser.setValue("Number Of Hours");
 		timeChooser.getItems().addAll(hourChoice);
-
-		hoursBox.getChildren().addAll(timeChooser);
-		hoursBox.setAlignment(Pos.CENTER_RIGHT);
+		
 		hoursBox.setPadding(new Insets(0, 20, 0, 0));
-
+		hoursBox.getChildren().addAll(timeChooser);
+		
 		// dialpad rows
 		dialPadRow1.setMinSize(10, 62);
 		dialPadRow1.setMaxWidth(148);
@@ -99,58 +98,49 @@ public class CustomerTerminalView extends Application {
 		dialPadRow4.setMinSize(10, 62);
 		dialPadRow4.setMaxWidth(148);
 
-		// dialpad
-		dialPad.setMinSize(700, 300);
-		dialPad.setStyle("-fx-background-color: #98AFC7;");
-		dialPad.setAlignment(Pos.CENTER);
-		dialPad.setSpacing(5);
-
-		// box to hold dialpad
-		buttonBox.setMinSize(700, 125);
+		
 		Button nextButton = new Button("Next");
 		nextButton.setMinSize(100, 25);
-		buttonBox.setStyle("-fx-background-color: #98AFC7;");
-		buttonBox.setPadding(new Insets(50, 0, 0, 500));
+		
 		buttonBox.getChildren().addAll(nextButton);
-		buttonBox.setAlignment(Pos.CENTER_RIGHT);
 		buttonBox.setPadding(new Insets(0, 20, 0, 0));
 
 		// size and background of dial buttons
 		oneButton.setMinSize(50, 62);
-		oneButton.setStyle("-fx-background-image: url('/main/1.jpg')");
+		oneButton.setStyle("-fx-background-image: url('/res/1.jpg')");
 
 		twoButton.setMinSize(50, 62);
-		twoButton.setStyle("-fx-background-image: url('/main/2.jpg')");
+		twoButton.setStyle("-fx-background-image: url('/res/2.jpg')");
 
 		threeButton.setMinSize(50, 62);
-		threeButton.setStyle("-fx-background-image: url('/main/3.jpg')");
+		threeButton.setStyle("-fx-background-image: url('/res/3.jpg')");
 
 		fourButton.setMinSize(50, 62);
-		fourButton.setStyle("-fx-background-image: url('/main/4.jpg')");
+		fourButton.setStyle("-fx-background-image: url('/res/4.jpg')");
 
 		fiveButton.setMinSize(50, 62);
-		fiveButton.setStyle("-fx-background-image: url('/main/5.jpg')");
+		fiveButton.setStyle("-fx-background-image: url('/res/5.jpg')");
 
 		sixButton.setMinSize(50, 62);
-		sixButton.setStyle("-fx-background-image: url('/main/6.jpg')");
+		sixButton.setStyle("-fx-background-image: url('/res/6.jpg')");
 
 		sevenButton.setMinSize(50, 62);
-		sevenButton.setStyle("-fx-background-image: url('/main/7.jpg')");
+		sevenButton.setStyle("-fx-background-image: url('/res/7.jpg')");
 
 		eightButton.setMinSize(50, 62);
-		eightButton.setStyle("-fx-background-image: url('/main/8.jpg')");
+		eightButton.setStyle("-fx-background-image: url('/res/8.jpg')");
 
 		nineButton.setMinSize(50, 62);
-		nineButton.setStyle("-fx-background-image: url('/main/9.jpg')");
+		nineButton.setStyle("-fx-background-image: url('/res/9.jpg')");
 
 		zeroButton.setMinSize(50, 62);
-		zeroButton.setStyle("-fx-background-image: url('/main/0.jpg')");
+		zeroButton.setStyle("-fx-background-image: url('/res/0.jpg')");
 
 		backspaceButton.setMinSize(50, 62);
-		backspaceButton.setStyle("-fx-background-image: url('/main/backspace.png')");
+		backspaceButton.setStyle("-fx-background-image: url('/res/backspace.png')");
 
 		clearButton.setMinSize(50, 62);
-		clearButton.setStyle("-fx-background-image: url('/main/clear.png')");
+		clearButton.setStyle("-fx-background-image: url('/res/clear.png')");
 
 		dialPadRow1.getChildren().addAll(oneButton, twoButton, threeButton);
 		dialPadRow2.getChildren().addAll(fourButton, fiveButton, sixButton);
@@ -167,10 +157,8 @@ public class CustomerTerminalView extends Application {
 		Text bikeRateText = new Text("The rate for motorcycles is $20 per hour");
 		Text truckRateText = new Text("The rate for trucks is $30 per hour");
 		Text allDayRateText = new Text("The all day rate (12 hours) for any vehicle is $150");
-		footer.setStyle("-fx-background-color: #E5E4E2;");
-		footer.setSpacing(7);
-		footer.getChildren().addAll(carRateText, bikeRateText, truckRateText, allDayRateText);
-		footer.setAlignment(Pos.CENTER);
+
+		footer.getChildren().addAll(bikeRateText, carRateText, truckRateText, allDayRateText);
 
 		// dialpad buttons
 		oneButton.setOnAction(e -> {
@@ -240,7 +228,10 @@ public class CustomerTerminalView extends Application {
 		;
 
 		nextButton.setOnAction(e -> {
-
+			//exception handling
+			if(slotNumberEntry.getText().isEmpty() || timeChooser.getValue().equals("Number Of Hours")){
+				
+			} else {
 			// car
 			if (Integer.parseInt(slotNumberEntry.getText()) <= 10) {
 
@@ -249,10 +240,8 @@ public class CustomerTerminalView extends Application {
 				lot.insertVehicle(slotNumberEntry.getText(), car);
 
 				// confirmation
-				Alert detailAlert = new Alert(AlertType.CONFIRMATION);
-				detailAlert.setTitle("Confirmation");
 				detailAlert.setContentText(
-						"Space Number: " + slotNumberEntry.getText() + "\nReturn time: " + car.getReturnTime()
+						"Space Number: " + slotNumberEntry.getText() + "\nReturn time: " + car.getReturnTime(car.getHours())
 								+ "\nPrice: $" + car.calculate(Integer.parseInt((String) timeChooser.getValue()), car));
 				detailAlert.show();
 				slotNumberEntry.clear();
@@ -265,12 +254,11 @@ public class CustomerTerminalView extends Application {
 				truck.setPrice(truck.calculate(truck.getHours(), truck));
 				lot.insertVehicle(slotNumberEntry.getText(), truck);
 
-				// confirmation
-				Alert detailAlert = new Alert(AlertType.CONFIRMATION);
-				detailAlert.setTitle("Confirmation");
-				detailAlert.setContentText("Space Number: " + slotNumberEntry.getText() + "\nReturn time: "
+				// confirmation				
+				detailAlert.setContentText("Space Number: " + slotNumberEntry.getText() + "Number of hours: "
+						+ truck.getHours() + "\nReturn time: "
 						+ truck.getReturnTime() + "\nPrice: $"
-						+ truck.calculate(Integer.parseInt((String) timeChooser.getValue()), truck));
+						+ truck.getPrice());
 				detailAlert.show();
 				slotNumberEntry.clear();
 				timeChooser.setValue("Number Of Hours");
@@ -283,8 +271,6 @@ public class CustomerTerminalView extends Application {
 				lot.insertVehicle(slotNumberEntry.getText(), bike);
 
 				// confirmation
-				Alert detailAlert = new Alert(AlertType.CONFIRMATION);
-				detailAlert.setTitle("Confirmation");
 				detailAlert.setContentText("Space Number: " + slotNumberEntry.getText() + "\nReturn time: "
 						+ bike.getReturnTime() + "\nPrice: $"
 						+ bike.calculate(Integer.parseInt((String) timeChooser.getValue()), bike));
@@ -301,7 +287,7 @@ public class CustomerTerminalView extends Application {
 				public void run() {
 
 					try {
-						new EmployeeTerminalView().start(employee);
+						new FrontWindowTerminalView().start(employee);
 					} catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -311,19 +297,27 @@ public class CustomerTerminalView extends Application {
 				}
 
 			});
-
+			}
 		});
 
 		VBox center = new VBox();
+		borderPane.setStyle("-fx-background-color: #98AFC7");
 		center.getChildren().addAll(hoursBox, dialPad, buttonBox);
 		vbox.getChildren().addAll(welcomeBox, center, footer);
 		vbox.setMinSize(main.getWidth(), main.getHeight());
 		borderPane.getChildren().addAll(vbox);
+		footer.setMinHeight(main.getHeight() - (welcomeBox.getHeight() + center.getHeight()) * 2);
+		center.setMinHeight(main.getHeight() - (welcomeBox.getHeight() + footer.getHeight()));
+		welcomeBox.setMinHeight(main.getHeight() - (center.getHeight() + footer.getHeight()));
 		borderPane.setBottom(footer);
 		borderPane.setTop(welcomeBox);
 		borderPane.setCenter(center);
+		
 
 		Scene scene = new Scene(borderPane, 700, 750);
+		scene.getStylesheets().add("/res/CustomerTerminalStyleSheet.css");
+		FrontWindowTerminalView.class.getResource("/res/CustomerTerminalStyleSheet.css").toExternalForm();
+
 		main.setTitle("Customer Terminal");
 		main.setX(0);
 		main.setY(0);

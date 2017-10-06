@@ -1,0 +1,12 @@
+.label {
+-fx-min-width: 50;
+-fx-min-height: 30;
+-fx-alignment: center;
+}
+
+#spotBox {
+	-fx-alignment: center;
+}
+#welcome-Box{
+	-fx-background-color: #98AFC7;
+}

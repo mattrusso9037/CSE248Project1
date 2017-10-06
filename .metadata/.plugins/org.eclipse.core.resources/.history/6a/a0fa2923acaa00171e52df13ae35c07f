@@ -1,0 +1,36 @@
+.label {
+	-fx-min-width: 50;
+	-fx-min-height: 30;
+	-fx-alignment: center;
+	-fx-font-size: 25;
+}
+.button{
+	-fx-min-width: 100;
+	-fx-padding: 25,0,0,0;
+}
+
+#footer{
+	-fx-alignment: center;
+	-fx-background-color: #E5E4E2;
+	-fx-min-width: 700;
+	-fx-spacing: 7;
+}
+
+#slotNumberFieldBox {
+	-fx-alignment: center;
+	-fx-background-color: #98AFC7;
+	-fx-spacing: 0;
+}
+
+#welcomeBox {
+	-fx-background-color: #98AFC7;
+	-fx-min-height: 200;
+	-fx-padding: 100,0,100,0;
+	-fx-alignment: center;
+}
+
+#spaceNumberText{
+	-fx-padding: 0,0,30,30;
+	-fx-font-size: 12;
+	
+}
