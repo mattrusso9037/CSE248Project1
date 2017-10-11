@@ -241,8 +241,7 @@ public class CustomerTerminalView extends Application {
 
 				// confirmation
 				detailAlert.setContentText(
-						"Space Number: " + slotNumberEntry.getText() +  "\nNumber of hours: "
-								+ car.getHours() + "\nReturn time: " + car.getReturnTime(car.getHours())
+						"Space Number: " + slotNumberEntry.getText() + "\nReturn time: " + car.getReturnTime(car.getHours())
 								+ "\nPrice: $" + car.calculate(Integer.parseInt((String) timeChooser.getValue()), car));
 				detailAlert.show();
 				slotNumberEntry.clear();
@@ -250,15 +249,15 @@ public class CustomerTerminalView extends Application {
 
 				// truck
 			} else if (Integer.parseInt(slotNumberEntry.getText()) > 10
-					&& Integer.parseInt(slotNumberEntry.getText()) <= 20) {//truck.getReturnTime()
+					&& Integer.parseInt(slotNumberEntry.getText()) <= 20) {
 				Truck truck = new Truck(slotNumberEntry.getText(), Integer.parseInt((String) timeChooser.getValue()));
 				truck.setPrice(truck.calculate(truck.getHours(), truck));
 				lot.insertVehicle(slotNumberEntry.getText(), truck);
 
 				// confirmation				
-				detailAlert.setContentText("Space Number: " + slotNumberEntry.getText() + "\nNumber of hours: "
+				detailAlert.setContentText("Space Number: " + slotNumberEntry.getText() + "Number of hours: "
 						+ truck.getHours() + "\nReturn time: "
-						+ truck.getReturnTime(truck.getHours()) + "\nPrice: $"
+						+ truck.getReturnTime() + "\nPrice: $"
 						+ truck.getPrice());
 				detailAlert.show();
 				slotNumberEntry.clear();
@@ -272,9 +271,8 @@ public class CustomerTerminalView extends Application {
 				lot.insertVehicle(slotNumberEntry.getText(), bike);
 
 				// confirmation
-				detailAlert.setContentText("Space Number: " + slotNumberEntry.getText() +  "\nNumber of hours: "
-						+ bike.getHours() + "\nReturn time: "
-						+ bike.getReturnTime(bike.getHours()) + "\nPrice: $"
+				detailAlert.setContentText("Space Number: " + slotNumberEntry.getText() + "\nReturn time: "
+						+ bike.getReturnTime() + "\nPrice: $"
 						+ bike.calculate(Integer.parseInt((String) timeChooser.getValue()), bike));
 				detailAlert.show();
 				slotNumberEntry.clear();

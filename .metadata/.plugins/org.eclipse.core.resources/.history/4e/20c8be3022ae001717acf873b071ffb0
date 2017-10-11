@@ -203,19 +203,21 @@ public class FrontWindowTerminalView extends CustomerTerminalView {
 
 			} else {
 				Lot.getLot().findVehicleById(slotNumberEntry.getText());
+Label late = new Label("late fee applied");
+late.setStyle("-fx-color:red");
 				// if time now is after customer return time plus 15 minutes add late fee charge
 				if (Lot.getLot().value.getReturnTime().plusMinutes(15).isBefore(now)) {
 					
 					Lot.getLot().value.setPrice(Lot.getLot().value.getPrice() + Lot.getLot().value.getLATE_FEE());
-					
-					details.setContentText("Space number: " + Lot.getLot().value.getSlotNumber() + "\nNumber of hours: " + Lot.getLot().value.getHours() +
-							"\nReturn Time: " + Lot.getLot().value.getReturnTime().format(formatter) + "\n*late fee applied" +
+					details.setContentText("Space number: " + Lot.getLot().value.getSlotNumber() + "\nReturn Time: " +
+							Lot.getLot().value.getReturnTime().format(formatter) + late +
 							"\nCustomer Owes: $" + Lot.getLot().value.getPrice());
 				} else {
 				
 			
-				details.setContentText("Space number: " + Lot.getLot().value.getSlotNumber()  + "\nNumber of hours: " + Lot.getLot().value.getHours() + 
-										"\nReturn Time: " + Lot.getLot().value.getReturnTime().format(formatter) + "\nCustomer Owes: $" + Lot.getLot().value.getPrice());
+				details.setContentText("Space number: " + Lot.getLot().value.getSlotNumber() + "\nReturn Time: " +
+				Lot.getLot().value.getReturnTime().format(formatter) + 
+				"\nCustomer Owes: $" + Lot.getLot().value.getPrice());
 				}
 				
 				details.show();

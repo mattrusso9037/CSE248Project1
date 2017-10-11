@@ -2,16 +2,24 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="hoursBox" key="selection"/>
+		<item value="/res" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="/main"/>
+			<item value=".add(&quot;/main"/>
+			<item value="setid"/>
+			<item value=".setid"/>
+			<item value=".setMinSize(50, 30);"/>
 			<item value="slotNumberFieldBox"/>
 			<item value="setMinWidth(25);"/>
 		</list>
 		<list key="replacehistory">
+			<item value="/res"/>
+			<item value=".add(&quot;/res"/>
+			<item value=""/>
 			<item value="hoursBox"/>
 			<item value="setMinSize(50,30);"/>
 		</list>

@@ -23,4 +23,7 @@
 <fullyQualifiedTypeName name="javafx.scene.layout.FlowPane"/>
 <fullyQualifiedTypeName name="com.sun.javafx.tk.Toolkit.Task"/>
 <fullyQualifiedTypeName name="javafx.application.Platform"/>
+<fullyQualifiedTypeName name="javafx.animation.Timeline"/>
+<fullyQualifiedTypeName name="javafx.animation.KeyFrame"/>
+<fullyQualifiedTypeName name="javafx.util.Duration"/>
 </qualifiedTypeNameHistroy>

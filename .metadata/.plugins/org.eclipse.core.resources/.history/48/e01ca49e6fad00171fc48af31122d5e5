@@ -3,8 +3,6 @@ package Main;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -19,7 +17,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 public class FrontWindowTerminalView extends CustomerTerminalView {
 
@@ -34,10 +31,6 @@ public class FrontWindowTerminalView extends CustomerTerminalView {
 		HBox carSpots2 = new HBox();
 		HBox carSpots3 = new HBox();
 		VBox spots = new VBox();
-		LocalDateTime now = LocalDateTime.now();
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM-dd-yyyy hh:mm a");
-
-
 
 		Alert details = new Alert(AlertType.CONFIRMATION);
 		details.setTitle("Confirmation");
@@ -107,7 +100,6 @@ public class FrontWindowTerminalView extends CustomerTerminalView {
 		Label bb1 = new Label("28");
 		Label cc1 = new Label("29");
 		Label dd1 = new Label("30");
-	
 
 		a.getChildren().add(aa);
 		b.getChildren().add(bb);
@@ -199,25 +191,24 @@ public class FrontWindowTerminalView extends CustomerTerminalView {
 
 		searchButton.setOnAction(action -> {
 			//exception handling
-			if (Lot.getLot().vehiclesMap.isEmpty() || slotNumberEntry.getText().isEmpty() || !Lot.getLot().vehiclesMap.containsKey(slotNumberEntry.getText())) {
+			if (Lot.getLot().vehiclesMap.isEmpty() || slotNumberEntry.getText().isEmpty()) {
 
 			} else {
 				Lot.getLot().findVehicleById(slotNumberEntry.getText());
+				Lot.getLot().value.display();
+
+				LocalDateTime now = LocalDateTime.now();
+				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM-dd-yyyy hh:mm a");
+
 				// if time now is after customer return time plus 15 minutes add late fee charge
 				if (Lot.getLot().value.getReturnTime().plusMinutes(15).isBefore(now)) {
-					
 					Lot.getLot().value.setPrice(Lot.getLot().value.getPrice() + Lot.getLot().value.getLATE_FEE());
-					
-					details.setContentText("Space number: " + Lot.getLot().value.getSlotNumber() + "\nNumber of hours: " + Lot.getLot().value.getHours() +
-							"\nReturn Time: " + Lot.getLot().value.getReturnTime().format(formatter) + "\n*late fee applied" +
-							"\nCustomer Owes: $" + Lot.getLot().value.getPrice());
-				} else {
-				
-			
-				details.setContentText("Space number: " + Lot.getLot().value.getSlotNumber()  + "\nNumber of hours: " + Lot.getLot().value.getHours() + 
-										"\nReturn Time: " + Lot.getLot().value.getReturnTime().format(formatter) + "\nCustomer Owes: $" + Lot.getLot().value.getPrice());
+
 				}
-				
+
+				details.setContentText("Spot Number: " + Lot.getLot().value.getSlotNumber() + "\nReturn Time: " +
+				Lot.getLot().value.getReturnTime().format(formatter) + "\nTime returned: " + now.format(formatter) +
+						"\nCustomer Owes: $" + Lot.getLot().value.getPrice());
 				details.show();
 
 				Lot.getLot().vehiclesMap.remove(slotNumberEntry.getText());

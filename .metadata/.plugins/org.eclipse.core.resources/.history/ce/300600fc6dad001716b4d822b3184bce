@@ -45,7 +45,7 @@ public class Vehicle {
 		System.out.println("Return time: " + getReturnTime(hours));
 		System.out.println();
 		System.out.println("Please bring ticket to window when retrieving vehicle.");
-		System.out.println("If you are late to pick up your vehicle you will be \ncharged an additional $50 late fee per hour");
+		System.out.println("If you are late to pick up your vehicle you will be \ncharged an additional $50 late fee");
 	}
 
 	public String getNow() {
@@ -79,7 +79,7 @@ public class Vehicle {
 	}
 
 	public int getLATE_FEE() {
-		return LATE_FEE * getHours();
+		return LATE_FEE;
 	}
 
 	public LocalDateTime getReturnTime() {

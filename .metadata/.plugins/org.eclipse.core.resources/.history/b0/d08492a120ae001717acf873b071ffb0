@@ -199,25 +199,22 @@ public class FrontWindowTerminalView extends CustomerTerminalView {
 
 		searchButton.setOnAction(action -> {
 			//exception handling
-			if (Lot.getLot().vehiclesMap.isEmpty() || slotNumberEntry.getText().isEmpty() || !Lot.getLot().vehiclesMap.containsKey(slotNumberEntry.getText())) {
+			if (Lot.getLot().vehiclesMap.isEmpty() || slotNumberEntry.getText().isEmpty()) {
 
 			} else {
 				Lot.getLot().findVehicleById(slotNumberEntry.getText());
+				Lot.getLot().value.display();
+
+
 				// if time now is after customer return time plus 15 minutes add late fee charge
 				if (Lot.getLot().value.getReturnTime().plusMinutes(15).isBefore(now)) {
-					
 					Lot.getLot().value.setPrice(Lot.getLot().value.getPrice() + Lot.getLot().value.getLATE_FEE());
-					
-					details.setContentText("Space number: " + Lot.getLot().value.getSlotNumber() + "\nNumber of hours: " + Lot.getLot().value.getHours() +
-							"\nReturn Time: " + Lot.getLot().value.getReturnTime().format(formatter) + "\n*late fee applied" +
-							"\nCustomer Owes: $" + Lot.getLot().value.getPrice());
-				} else {
-				
-			
-				details.setContentText("Space number: " + Lot.getLot().value.getSlotNumber()  + "\nNumber of hours: " + Lot.getLot().value.getHours() + 
-										"\nReturn Time: " + Lot.getLot().value.getReturnTime().format(formatter) + "\nCustomer Owes: $" + Lot.getLot().value.getPrice());
+
 				}
-				
+
+				details.setContentText("Spot Number: " + Lot.getLot().value.getSlotNumber() + "\nReturn Time: " +
+				Lot.getLot().value.getReturnTime().format(formatter) + "\nTime returned: " + now.format(formatter) +
+				"\nCustomer Owes: $" + Lot.getLot().value.getPrice());
 				details.show();
 
 				Lot.getLot().vehiclesMap.remove(slotNumberEntry.getText());

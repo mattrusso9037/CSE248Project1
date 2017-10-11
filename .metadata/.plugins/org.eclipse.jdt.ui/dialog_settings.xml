@@ -3,7 +3,7 @@
 	<section name="org.eclipse.ltk.ui.refactoring.settings">
 		<item value="false" key="updateQualifiedNames"/>
 		<item value="*" key="patterns"/>
-		<item value="true" key="updateSimilarElements"/>
+		<item value="false" key="updateSimilarElements"/>
 		<item value="1" key="updateSimilarElementsMatchStrategy"/>
 		<item value="false" key="updateTextualMatches"/>
 	</section>
@@ -51,8 +51,8 @@
 		<item value="588" key="DIALOG_WIDTH"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-24|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 		<item value="708" key="DIALOG_HEIGHT"/>
-		<item value="741" key="DIALOG_X_ORIGIN"/>
-		<item value="265" key="DIALOG_Y_ORIGIN"/>
+		<item value="498" key="DIALOG_X_ORIGIN"/>
+		<item value="170" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="RefactoringWizard.preview">
 		<item value="600" key="width"/>
@@ -61,21 +61,33 @@
 	<section name="javadoc">
 		<item value="public" key="access"/>
 		<item value="false" key="noindex"/>
+		<item value="C:\Users\mattr\CSE248Project1\Parking Lot App\javadoc.xml" key="antpath"/>
 		<item value="false" key="nodeprecatedlist"/>
 		<item value="true" key="use"/>
 		<item value="true" key="author"/>
 		<item value="false" key="nodeprecated"/>
 		<item value="false" key="nonavbar"/>
 		<item value="" key="docletpath"/>
-		<item value="C:\Users\mattr\eclipse\java-neon\eclipse\eclipse.exe" key="javadoc_command_history"/>
-		<item value="1.3" key="source"/>
+		<item value="C:\Program Files\Java\jdk1.8.0_144\bin\javadoc.exe;C:\Users\mattr\eclipse\java-neon\eclipse\eclipse.exe" key="javadoc_command_history"/>
+		<item value="1.8" key="source"/>
 		<item value="true" key="version"/>
 		<item value="" key="docletname"/>
 		<item value="true" key="splitindex"/>
 		<item value="true" key="fromStandard"/>
 		<item value="false" key="notree"/>
+		<item value="C:\Users\mattr\CSE248Project1\Parking Lot App\doc" key="destdir"/>
 		<item value="false" key="openinbrowser"/>
 		<section name="projects">
+			<section name="CSE248 Singleton Design Pattern">
+				<item value="C:\Users\mattr\CSE248Project1\CSE248 Singleton Design Pattern\javadoc.xml" key="antpath"/>
+				<item value="C:\Users\mattr\CSE248Project1\CSE248 Singleton Design Pattern\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
+			<section name="Parking Lot App">
+				<item value="C:\Users\mattr\CSE248Project1\Parking Lot App\javadoc.xml" key="antpath"/>
+				<item value="C:\Users\mattr\CSE248Project1\Parking Lot App\doc" key="destdir"/>
+				<item value="" key="href"/>
+			</section>
 		</section>
 	</section>
 	<section name="SourceActionDialog.methods">
@@ -109,8 +121,8 @@
 		<item value="713" key="DIALOG_WIDTH"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-24|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 		<item value="558" key="DIALOG_HEIGHT"/>
-		<item value="334" key="DIALOG_X_ORIGIN"/>
-		<item value="70" key="DIALOG_Y_ORIGIN"/>
+		<item value="132" key="DIALOG_X_ORIGIN"/>
+		<item value="140" key="DIALOG_Y_ORIGIN"/>
 	</section>
 	<section name="completion_proposal_size">
 	</section>

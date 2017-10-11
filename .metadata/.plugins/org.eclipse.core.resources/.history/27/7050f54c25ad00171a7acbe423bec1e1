@@ -241,8 +241,7 @@ public class CustomerTerminalView extends Application {
 
 				// confirmation
 				detailAlert.setContentText(
-						"Space Number: " + slotNumberEntry.getText() +  "\nNumber of hours: "
-								+ car.getHours() + "\nReturn time: " + car.getReturnTime(car.getHours())
+						"Space Number: " + slotNumberEntry.getText() + "\nReturn time: " + car.getReturnTime(car.getHours())
 								+ "\nPrice: $" + car.calculate(Integer.parseInt((String) timeChooser.getValue()), car));
 				detailAlert.show();
 				slotNumberEntry.clear();
@@ -256,7 +255,7 @@ public class CustomerTerminalView extends Application {
 				lot.insertVehicle(slotNumberEntry.getText(), truck);
 
 				// confirmation				
-				detailAlert.setContentText("Space Number: " + slotNumberEntry.getText() + "\nNumber of hours: "
+				detailAlert.setContentText("Space Number: " + slotNumberEntry.getText() + "Number of hours: "
 						+ truck.getHours() + "\nReturn time: "
 						+ truck.getReturnTime(truck.getHours()) + "\nPrice: $"
 						+ truck.getPrice());
@@ -272,8 +271,7 @@ public class CustomerTerminalView extends Application {
 				lot.insertVehicle(slotNumberEntry.getText(), bike);
 
 				// confirmation
-				detailAlert.setContentText("Space Number: " + slotNumberEntry.getText() +  "\nNumber of hours: "
-						+ bike.getHours() + "\nReturn time: "
+				detailAlert.setContentText("Space Number: " + slotNumberEntry.getText() + "\nReturn time: "
 						+ bike.getReturnTime(bike.getHours()) + "\nPrice: $"
 						+ bike.calculate(Integer.parseInt((String) timeChooser.getValue()), bike));
 				detailAlert.show();

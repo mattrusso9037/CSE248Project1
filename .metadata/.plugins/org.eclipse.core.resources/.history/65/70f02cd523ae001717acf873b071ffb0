@@ -211,8 +211,11 @@ public class CustomerTerminalView extends Application {
 		;
 
 		backspaceButton.setOnAction(e -> {
-			if (slotNumberEntry != null)
+			if (slotNumberEntry != null) {
 				slotNumberEntry.setText(slotNumberEntry.getText().substring(0, slotNumberEntry.getLength() - 1));
+			} else {
+				
+			}
 		});
 		;
 
